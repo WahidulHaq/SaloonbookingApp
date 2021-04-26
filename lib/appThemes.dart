@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class appcolor {
-  static const Color colorBlack = const Color(0xff0C233C);
+  static const Color bgcolor = const Color(0xff0C233C);
   static const Color colorwhite = const Color(0xFFFFFFFF);
   static const Color buttoncolor = const Color(0xff515bf5);
   static const Color textcolor = const Color(0xff97AAC3);
@@ -21,18 +21,19 @@ class TextFormFieldWidget extends StatefulWidget {
   final Function onSubmitField;
   final Function onFieldTap;
 
-  const TextFormFieldWidget({@required this.hintText,
-    this.focusNode,
-    this.textInputType,
-    this.defaultText,
-    this.obscureText = false,
-    this.controller,
-    this.functionValidate,
-    this.parametersValidate,
-    this.actionKeyboard = TextInputAction.next,
-    this.onSubmitField,
-    this.onFieldTap,
-    this.prefixIcon});
+  const TextFormFieldWidget(
+      {@required this.hintText,
+      this.focusNode,
+      this.textInputType,
+      this.defaultText,
+      this.obscureText = false,
+      this.controller,
+      this.functionValidate,
+      this.parametersValidate,
+      this.actionKeyboard = TextInputAction.next,
+      this.onSubmitField,
+      this.onFieldTap,
+      this.prefixIcon});
 
   @override
   _TextFormFieldWidgetState createState() => _TextFormFieldWidgetState();
@@ -46,14 +47,13 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
     return Theme(
       data: Theme.of(context).copyWith(),
       child: TextFormField(
-        cursorColor: appcolor.colorBlack,
+        cursorColor: appcolor.bgcolor,
         obscureText: widget.obscureText,
         keyboardType: widget.textInputType,
         textInputAction: widget.actionKeyboard,
         focusNode: widget.focusNode,
-
         style: TextStyle(
-          color: appcolor.colorBlack,
+          color: appcolor.bgcolor,
           fontSize: 16.0,
           fontWeight: FontWeight.normal,
           fontStyle: FontStyle.normal,
@@ -61,18 +61,17 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
         ),
         initialValue: widget.defaultText,
         decoration: InputDecoration(
-
           prefixIcon: widget.prefixIcon,
           hintText: widget.hintText,
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: appcolor.buttoncolor,width: 1.0),
+            borderSide: BorderSide(color: appcolor.buttoncolor, width: 1.0),
             borderRadius: BorderRadius.circular(10.0),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: appcolor.colorwhite),
           ),
           hintStyle: TextStyle(
-            color: appcolor.colorBlack,
+            color: appcolor.bgcolor,
             fontSize: 14.0,
             fontWeight: FontWeight.w300,
             fontStyle: FontStyle.normal,
@@ -82,24 +81,24 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
               top: 12, bottom: bottomPaddingToError, left: 8.0, right: 8.0),
           isDense: true,
           errorStyle: TextStyle(
-            color: appcolor.colorBlack,
+            color: appcolor.bgcolor,
             fontSize: 12.0,
             fontWeight: FontWeight.w300,
             fontStyle: FontStyle.normal,
             letterSpacing: 1.2,
           ),
           errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: appcolor.colorBlack),
+            borderSide: BorderSide(color: appcolor.bgcolor),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: appcolor.colorBlack),
+            borderSide: BorderSide(color: appcolor.bgcolor),
           ),
         ),
         controller: widget.controller,
         validator: (value) {
           if (widget.functionValidate != null) {
             String resultValidate =
-            widget.functionValidate(value, widget.parametersValidate);
+                widget.functionValidate(value, widget.parametersValidate);
             if (resultValidate != null) {
               return resultValidate;
             }
@@ -132,8 +131,8 @@ String requiredValidator(value, messageError) {
   return null;
 }
 
-void changeFocus(BuildContext context, FocusNode currentFocus,
-    FocusNode nextFocus) {
+void changeFocus(
+    BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
   currentFocus.unfocus();
   FocusScope.of(context).requestFocus(nextFocus);
 }
@@ -143,16 +142,51 @@ void changeFocus(BuildContext context, FocusNode currentFocus,
 class myRaisesdButton extends StatelessWidget {
   myRaisesdButton({this.color, this.text, this.onPress});
 
-
   final Function onPress;
   final String text;
   final Color color;
 
   @override
   Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 250),
+      child: SizedBox(
+          height: 40,
+          width: 100,
+          child: RaisedButton(
+
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  side: BorderSide(color: appcolor.colorwhite)),
+              color: Colors.greenAccent,
+              elevation: 5.0,
+              splashColor: Colors.black,
+              animationDuration: Duration(seconds: 2),
+              onPressed: onPress,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    text,
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  Icon(Icons.arrow_forward)
+                ],
+              ))),
+    );
+  }
+}
+class MyRaisedButton extends StatelessWidget {
+  MyRaisedButton({this.onPress,this.text,this.color});
+  final Function onPress;
+  final String text;
+  final Color color;
+  @override
+  Widget build(BuildContext context) {
     return Container(
       child: RaisedButton(
-        color: appcolor.buttoncolor,
+        color: Colors.lightGreen,
         onPressed: onPress,
         child: Text(text,style: TextStyle(color: appcolor.colorwhite),),
         shape: RoundedRectangleBorder(
@@ -162,4 +196,3 @@ class myRaisesdButton extends StatelessWidget {
     );
   }
 }
-

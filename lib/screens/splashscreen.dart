@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:saloonbooking_aap/appThemes.dart';
 import 'package:saloonbooking_aap/screens/loginpage.dart';
+import 'package:saloonbooking_aap/screens/secondscreen.dart';
 
 class splashscreen extends StatefulWidget {
   @override
@@ -14,14 +15,14 @@ class _splashscreenState extends State<splashscreen> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 5),
+        Duration(seconds: 3),
         () => Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => loginpage())));
+            MaterialPageRoute(builder: (BuildContext context) => secondscreen())));
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: appcolor.bgcolor,
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
