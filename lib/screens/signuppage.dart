@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:saloonbooking_aap/appThemes.dart';
+import 'package:saloonbooking_aap/screens/verificationpage.dart';
 
 class signuppage extends StatefulWidget {
   @override
@@ -110,12 +111,17 @@ class _signuppageState extends State<signuppage> {
             ],
           ),
           Container(
-            margin: EdgeInsets.only(top: 40),
+              margin: EdgeInsets.only(top: 40),
               width: MediaQuery.of(context).size.width / 1.2,
               height: 50,
               child: MyRaisedButton(
                 text: "SIGN UP",
-                onPress: () {},
+                onPress: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => verificationpage()));
+                },
               )),
           Container(
             margin: EdgeInsets.only(top: 40),

@@ -22,6 +22,7 @@ class TextFormFieldWidget extends StatefulWidget {
   final TextInputAction actionKeyboard;
   final Function onSubmitField;
   final Function onFieldTap;
+  final int maxLenght;
 
   const TextFormFieldWidget(
       {@required this.hintText,
@@ -37,7 +38,8 @@ class TextFormFieldWidget extends StatefulWidget {
       this.onSubmitField,
       this.onFieldTap,
       this.prefixIcon,
-      this.suffixIcon});
+      this.suffixIcon,
+      this.maxLenght});
 
   @override
   _TextFormFieldWidgetState createState() => _TextFormFieldWidgetState();
