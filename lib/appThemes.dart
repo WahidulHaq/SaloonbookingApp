@@ -10,7 +10,9 @@ class appcolor {
 class TextFormFieldWidget extends StatefulWidget {
   final TextInputType textInputType;
   final String hintText;
+  final String labelText;
   final Widget prefixIcon;
+  final Widget suffixIcon;
   final String defaultText;
   final FocusNode focusNode;
   final bool obscureText;
@@ -24,6 +26,7 @@ class TextFormFieldWidget extends StatefulWidget {
   const TextFormFieldWidget(
       {@required this.hintText,
       this.focusNode,
+      this.labelText,
       this.textInputType,
       this.defaultText,
       this.obscureText = false,
@@ -33,7 +36,8 @@ class TextFormFieldWidget extends StatefulWidget {
       this.actionKeyboard = TextInputAction.next,
       this.onSubmitField,
       this.onFieldTap,
-      this.prefixIcon});
+      this.prefixIcon,
+      this.suffixIcon});
 
   @override
   _TextFormFieldWidgetState createState() => _TextFormFieldWidgetState();
@@ -47,13 +51,13 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
     return Theme(
       data: Theme.of(context).copyWith(),
       child: TextFormField(
-        cursorColor: appcolor.bgcolor,
+        cursorColor: appcolor.colorwhite,
         obscureText: widget.obscureText,
         keyboardType: widget.textInputType,
         textInputAction: widget.actionKeyboard,
         focusNode: widget.focusNode,
         style: TextStyle(
-          color: appcolor.bgcolor,
+          color: appcolor.colorwhite,
           fontSize: 16.0,
           fontWeight: FontWeight.normal,
           fontStyle: FontStyle.normal,
@@ -61,19 +65,22 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
         ),
         initialValue: widget.defaultText,
         decoration: InputDecoration(
+          suffixIcon: widget.suffixIcon,
+          fillColor: Colors.white,
           prefixIcon: widget.prefixIcon,
           hintText: widget.hintText,
+          labelText: widget.labelText,
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: appcolor.buttoncolor, width: 1.0),
-            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: appcolor.colorwhite, width: 1.0),
+            borderRadius: BorderRadius.circular(0.0),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: appcolor.colorwhite),
           ),
           hintStyle: TextStyle(
-            color: appcolor.bgcolor,
+            color: appcolor.colorwhite,
             fontSize: 14.0,
-            fontWeight: FontWeight.w300,
+            fontWeight: FontWeight.w600,
             fontStyle: FontStyle.normal,
             letterSpacing: 1.2,
           ),
@@ -81,7 +88,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
               top: 12, bottom: bottomPaddingToError, left: 8.0, right: 8.0),
           isDense: true,
           errorStyle: TextStyle(
-            color: appcolor.bgcolor,
+            color: appcolor.colorwhite,
             fontSize: 12.0,
             fontWeight: FontWeight.w300,
             fontStyle: FontStyle.normal,
@@ -154,13 +161,12 @@ class myRaisesdButton extends StatelessWidget {
           height: 40,
           width: 100,
           child: RaisedButton(
-
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                   side: BorderSide(color: appcolor.colorwhite)),
               color: Colors.greenAccent,
               elevation: 5.0,
-              splashColor: Colors.black,
+              splashColor: Colors.black45,
               animationDuration: Duration(seconds: 2),
               onPressed: onPress,
               child: Row(
@@ -177,21 +183,29 @@ class myRaisesdButton extends StatelessWidget {
     );
   }
 }
+
 class MyRaisedButton extends StatelessWidget {
-  MyRaisedButton({this.onPress,this.text,this.color});
+  MyRaisedButton({this.onPress, this.text, this.color});
+
   final Function onPress;
   final String text;
   final Color color;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: RaisedButton(
+        splashColor: Colors.black45,
         color: Colors.lightGreen,
         onPressed: onPress,
-        child: Text(text,style: TextStyle(color: appcolor.colorwhite),),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5.0)
+        child: Text(
+          text,
+          style: TextStyle(
+              color: appcolor.colorwhite,
+              fontWeight: FontWeight.w700,
+              fontSize: 18),
         ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
       ),
     );
   }
