@@ -7,6 +7,23 @@ class resetPassword extends StatefulWidget {
 }
 
 class _resetPasswordState extends State<resetPassword> {
+  final TextEditingController retypepasscontroller = TextEditingController();
+  final TextEditingController _typepasscontroller = TextEditingController();
+  final TextEditingController _emailcontroller  = TextEditingController();
+  FocusNode _emailFocusNode = FocusNode();
+  FocusNode _passFocusNode = FocusNode();
+  FocusNode _retypeFocusNode = FocusNode();
+  bool passwordVisible;
+  bool visiblepassword;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    passwordVisible = true;
+    visiblepassword = true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +53,8 @@ class _resetPasswordState extends State<resetPassword> {
               margin: EdgeInsets.only(top: 30),
               width: MediaQuery.of(context).size.width / 1.2,
               child: TextFormFieldWidget(
+                controller: _emailcontroller,
+                focusNode: _emailFocusNode,
                 hintText: "demo@gmail.com",
                 prefixIcon: Icon(
                   Icons.email,
@@ -47,10 +66,20 @@ class _resetPasswordState extends State<resetPassword> {
               margin: EdgeInsets.only(top: 30),
               width: MediaQuery.of(context).size.width / 1.2,
               child: TextFormFieldWidget(
-                obscureText: true,
-                suffixIcon: Icon(
-                  Icons.remove_red_eye,
-                  color: appcolor.colorwhite,
+                focusNode: _passFocusNode,
+                controller: _typepasscontroller,
+                obscureText: passwordVisible,
+                suffixIcon: IconButton(
+                  onPressed: (){
+                    setState(() {
+                      passwordVisible = !passwordVisible;
+                    });
+                  },
+                  icon: Icon(
+                    Icons.remove_red_eye_outlined,
+                    color: appcolor.colorwhite,
+                    size: 20,
+                  ),
                 ),
                 hintText: "Type Password",
                 prefixIcon: Icon(
@@ -63,10 +92,20 @@ class _resetPasswordState extends State<resetPassword> {
               margin: EdgeInsets.only(top: 30),
               width: MediaQuery.of(context).size.width / 1.2,
               child: TextFormFieldWidget(
-                obscureText: true,
-                suffixIcon: Icon(
-                  Icons.remove_red_eye,
-                  color: appcolor.colorwhite,
+                focusNode: _retypeFocusNode,
+                controller: retypepasscontroller,
+                obscureText: visiblepassword,
+                suffixIcon: IconButton(
+                  onPressed: (){
+                    setState(() {
+                      visiblepassword = !visiblepassword;
+                    });
+                  },
+                  icon: Icon(
+                    Icons.remove_red_eye_outlined,
+                    color: appcolor.colorwhite,
+                    size: 20,
+                  ),
                 ),
                 hintText: "Type Password",
                 prefixIcon: Icon(
@@ -81,7 +120,9 @@ class _resetPasswordState extends State<resetPassword> {
                 height: 50,
                 child: MyRaisedButton(
                   text: "SIGN IN",
-                  onPress: () {},
+                  onPress: () {
+                    
+                  },
                 )),
           ],
         ),

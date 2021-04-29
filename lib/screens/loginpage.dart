@@ -10,6 +10,17 @@ class loginpage extends StatefulWidget {
 }
 
 class _loginpageState extends State<loginpage> {
+  final TextEditingController emailController = TextEditingController();
+  FocusNode emailFocusNode = FocusNode();
+  bool passwordVisible;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    passwordVisible = true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,10 +58,19 @@ class _loginpageState extends State<loginpage> {
               margin: EdgeInsets.only(top: 30),
               width: MediaQuery.of(context).size.width / 1.2,
               child: TextFormFieldWidget(
-                obscureText: true,
-                suffixIcon: Icon(
-                  Icons.remove_red_eye,
-                  color: appcolor.colorwhite,
+                controller: emailController,
+                focusNode: emailFocusNode,
+                obscureText: passwordVisible,
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      passwordVisible = !passwordVisible;
+                    });
+                  },
+                  icon: Icon(
+                    Icons.remove_red_eye,
+                    color: appcolor.colorwhite,
+                  ),
                 ),
                 hintText: "Type Password",
                 prefixIcon: Icon(

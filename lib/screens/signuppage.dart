@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:saloonbooking_aap/appThemes.dart';
+import 'package:saloonbooking_aap/screens/loginpage.dart';
 import 'package:saloonbooking_aap/screens/verificationpage.dart';
 
 class signuppage extends StatefulWidget {
@@ -9,7 +10,26 @@ class signuppage extends StatefulWidget {
 }
 
 class _signuppageState extends State<signuppage> {
+  final TextEditingController emailcontroller = TextEditingController();
+  final TextEditingController passwordcontroller = TextEditingController();
+  final TextEditingController retypecontroller = TextEditingController();
+  FocusNode emailFocusNode = FocusNode();
+  FocusNode passwordFocusNode = FocusNode();
+  FocusNode retypepasswordFocusNode = FocusNode();
+
+  bool passwordVisible;
+  bool retypePasswordVisbible;
   bool _checkbox = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      passwordVisible = true;
+      retypePasswordVisbible = true;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +57,8 @@ class _signuppageState extends State<signuppage> {
               margin: EdgeInsets.only(top: 30),
               width: MediaQuery.of(context).size.width / 1.2,
               child: TextFormFieldWidget(
+                controller: emailcontroller,
+                focusNode: emailFocusNode,
                 hintText: "demo@gmail.com",
                 prefixIcon: Icon(
                   Icons.email,
@@ -48,10 +70,19 @@ class _signuppageState extends State<signuppage> {
               margin: EdgeInsets.only(top: 30),
               width: MediaQuery.of(context).size.width / 1.2,
               child: TextFormFieldWidget(
-                obscureText: true,
-                suffixIcon: Icon(
-                  Icons.remove_red_eye,
-                  color: appcolor.colorwhite,
+                controller: passwordcontroller,
+                focusNode: passwordFocusNode,
+                obscureText: passwordVisible,
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      passwordVisible = !passwordVisible;
+                    });
+                  },
+                  icon: Icon(
+                    Icons.remove_red_eye,
+                    color: appcolor.colorwhite,
+                  ),
                 ),
                 hintText: "Type Password",
                 prefixIcon: Icon(
@@ -64,10 +95,19 @@ class _signuppageState extends State<signuppage> {
               margin: EdgeInsets.only(top: 30),
               width: MediaQuery.of(context).size.width / 1.2,
               child: TextFormFieldWidget(
-                obscureText: true,
-                suffixIcon: Icon(
-                  Icons.remove_red_eye,
-                  color: appcolor.colorwhite,
+                focusNode: retypepasswordFocusNode,
+                controller: retypecontroller,
+                obscureText: retypePasswordVisbible,
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      retypePasswordVisbible = !retypePasswordVisbible;
+                    });
+                  },
+                  icon: Icon(
+                    Icons.remove_red_eye,
+                    color: appcolor.colorwhite,
+                  ),
                 ),
                 hintText: "Type Password",
                 prefixIcon: Icon(
@@ -137,7 +177,13 @@ class _signuppageState extends State<signuppage> {
                           decoration: TextDecoration.underline,
                           color: Colors.green,
                           fontSize: 15),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => loginpage()));
+                        },
                     ),
                   ],
                 ),
