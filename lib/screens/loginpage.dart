@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saloonbooking_aap/appThemes.dart';
 import 'package:saloonbooking_aap/screens/forgotpassword.dart';
 import 'package:saloonbooking_aap/screens/signuppage.dart';
+import 'package:saloonbooking_aap/tabbar/homepage.dart';
 
 class loginpage extends StatefulWidget {
   @override
@@ -104,7 +105,12 @@ class _loginpageState extends State<loginpage> {
                 width: MediaQuery.of(context).size.width / 1.2,
                 height: 50,
                 child: MyRaisedButton(
-                  onPress: () {},
+                  onPress: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => homepage()));
+                  },
                   text: "SIGN IN",
                 )),
             Container(

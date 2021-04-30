@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:saloonbooking_aap/appThemes.dart';
-import 'package:fancy_drawer/fancy_drawer.dart';
+import 'package:saloonbooking_aap/tabbar/appintmentpage.dart';
+import 'package:saloonbooking_aap/tabbar/cartpage.dart';
+import 'package:saloonbooking_aap/tabbar/chatpage.dart';
+import 'package:saloonbooking_aap/tabbar/dashboard.dart';
 import 'package:saloonbooking_aap/tabbar/profilePage.dart';
 
 class homepage extends StatefulWidget {
@@ -11,13 +14,11 @@ class homepage extends StatefulWidget {
 class _homepageState extends State<homepage>
     with SingleTickerProviderStateMixin {
   int _currentIndex = 0;
-  final List<Widget> _children = [
-    profilepage()
-  ];
-  FancyDrawerController _controller;
+  TabController _tabController;
   final titels = [
     "Home",
     "Appointment",
+    "Profile",
     "Payment",
     "Notification",
     "Settings",
@@ -26,6 +27,7 @@ class _homepageState extends State<homepage>
   final icons = [
     Icons.home,
     Icons.calendar_today_sharp,
+    Icons.person_outline_sharp,
     Icons.account_balance_wallet_outlined,
     Icons.add_alert,
     Icons.settings,
@@ -42,18 +44,7 @@ class _homepageState extends State<homepage>
   void initState() {
     // TODO: implement initState
     super.initState();
-    _controller = FancyDrawerController(
-        vsync: this, duration: Duration(microseconds: 250))
-      ..addListener(() {
-        setState(() {});
-      });
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    _controller.dispose();
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -72,13 +63,10 @@ class _homepageState extends State<homepage>
                     Container(
                       height: 70,
                       margin: EdgeInsets.only(bottom: 10),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: AssetImage(
-                              "assets/persone.jpeg",
-                            ),
-                          )),
+                     child:  CircleAvatar(
+                       backgroundImage: AssetImage("assets/persone.jpeg",),
+                       radius: 50.0,
+                     ),
                     ),
                     Text(
                       "Robert Jeison",
@@ -124,36 +112,65 @@ class _homepageState extends State<homepage>
       appBar: AppBar(
         backgroundColor: appcolor.bgcolor,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: appcolor.bgcolor,
-        selectedItemColor: appcolor.colorwhite,
-        unselectedItemColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: onTabTapped,
-        items: [
-          BottomNavigationBarItem(
-            backgroundColor: appcolor.bgcolor,
-            icon: new Icon(Icons.home),
-            title: new Text('Home'),
+      bottomNavigationBar: TabBar(
+        controller: _tabController,
+        unselectedLabelStyle: TextStyle(fontSize: 13),
+        labelStyle: TextStyle(fontSize: 10),
+        unselectedLabelColor: Colors.lightGreenAccent,
+        indicator: UnderlineTabIndicator(
+            borderSide: BorderSide(width: 2.0, color: appcolor.colorwhite)),
+        tabs: <Widget>[
+          Tab(
+            icon: Icon(
+              Icons.home,
+              size: 20,
+            ),
+            text: "Home",
           ),
-          BottomNavigationBarItem(
-              backgroundColor: appcolor.bgcolor,
-              icon: Icon(Icons.location_on_outlined),
-              title: Text("Nearby")),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today_outlined),
-              title: Text("Appointment")),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.mark_chat_unread_outlined),
-              title: Text("Inbox")),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), title: Text("Profile")),
+
+          Tab(
+            icon: Icon(
+              Icons.calendar_today_outlined,
+              size: 20,
+            ),
+            text: "Appointment",
+          ),
+          Tab(
+            icon: Icon(
+              Icons.message,
+              size: 20,
+            ),
+            text: "Invox",
+          ),
+
+          Tab(
+            icon: Icon(Icons.shopping_cart_outlined,size: 20,),
+            text: "Cart",
+          ),
+          Tab(
+            icon: Icon(
+              Icons.person,
+              size: 20,
+            ),
+            text: "Profile",
+          ),
         ],
       ),
       body: Container(
-        color: appcolor.colorwhite,
+        child: Center(
+          child: TabBarView(
+            controller: _tabController,
+            children: <Widget>[
+              dashboard(),
+              appointmentpage(),
+              chatapp(),
+              cartpage(),
+              profilepage(),
+            ],
+          ),
+        ),
       ),
     );
   }
 }
+
