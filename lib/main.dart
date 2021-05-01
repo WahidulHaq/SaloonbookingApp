@@ -12,6 +12,6 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: "Saloon Appointment",
-    home: homepage(),
+    home: splashscreen(),
   ));
 }
