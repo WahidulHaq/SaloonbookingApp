@@ -152,7 +152,7 @@ class _signuppageState extends State<signuppage> {
               ],
             ),
             Container(
-                margin: EdgeInsets.only(top: 40),
+                margin: EdgeInsets.only(top: 20),
                 width: MediaQuery.of(context).size.width / 1.2,
                 height: 50,
                 child: MyRaisedButton(
@@ -165,7 +165,7 @@ class _signuppageState extends State<signuppage> {
                   },
                 )),
             Container(
-              margin: EdgeInsets.only(top: 40),
+              margin: EdgeInsets.only(top: 10),
               child: RichText(
                 text: TextSpan(
                   text: 'Already have account?',
@@ -189,6 +189,64 @@ class _signuppageState extends State<signuppage> {
                 ),
               ),
             ),
+            Container(
+              height: 50,
+              margin: EdgeInsets.only(top: 20),
+              width: MediaQuery.of(context).size.width / 1.2,
+              child: RaisedButton(
+                  onPressed: () {},
+                  color: appcolor.facbookcolor,
+                  child: Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: Image.asset(
+                          "assets/fblogo.png",
+                          width: 40,
+                        ),
+                      ),
+                      Divider(thickness: 2.0,),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Text(
+                          "Signup with Facebook",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: appcolor.colorwhite),
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
+            Container(
+              height: 50,
+              margin: EdgeInsets.only(top: 10,bottom: 20),
+              width: MediaQuery.of(context).size.width / 1.2,
+              child: RaisedButton(
+                  onPressed: () {},
+                  color: appcolor.googlecolor.withOpacity(0.8),
+                  child: Row(
+                    children: [
+                      Image.asset(
+
+                        "assets/glogo.png",
+                        width: 40,
+                      ),
+                      Divider(thickness: 2.0,),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Text(
+                          "Signup with Google",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: appcolor.colorwhite),
+                        ),
+                      ),
+                    ],
+                  )),
+            )
           ],
         ),
       ),

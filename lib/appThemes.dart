@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class appcolor {
@@ -5,6 +7,9 @@ class appcolor {
   static const Color colorwhite = const Color(0xFFFFFFFF);
   static const Color buttoncolor = const Color(0xff515bf5);
   static const Color textcolor = const Color(0xff97AAC3);
+  static const Color googlecolor  = const Color(0xffdb4a39);
+  static const Color facbookcolor  = const Color(0xff3b5998);
+
 }
 
 class TextFormFieldWidget extends StatefulWidget {

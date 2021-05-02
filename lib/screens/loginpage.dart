@@ -106,10 +106,8 @@ class _loginpageState extends State<loginpage> {
                 height: 50,
                 child: MyRaisedButton(
                   onPress: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => homepage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => homepage()));
                   },
                   text: "SIGN IN",
                 )),
@@ -140,6 +138,64 @@ class _loginpageState extends State<loginpage> {
                   )
                 ],
               ),
+            ),
+            Container(
+              height: 50,
+              margin: EdgeInsets.only(top: 40),
+              width: MediaQuery.of(context).size.width / 1.2,
+              child: RaisedButton(
+                  onPressed: () {},
+                  color: appcolor.facbookcolor,
+                  child: Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: Image.asset(
+                          "assets/fblogo.png",
+                          width: 40,
+                        ),
+                      ),
+                      Divider(thickness: 2.0,),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Text(
+                          "Login with Facebook",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: appcolor.colorwhite),
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
+            Container(
+              height: 50,
+              margin: EdgeInsets.only(top: 10),
+              width: MediaQuery.of(context).size.width / 1.2,
+              child: RaisedButton(
+                  onPressed: () {},
+                  color: appcolor.googlecolor.withOpacity(0.8),
+                  child: Row(
+                    children: [
+                      Image.asset(
+
+                        "assets/glogo.png",
+                        width: 40,
+                      ),
+                      Divider(thickness: 2.0,),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Text(
+                          "Login with Google",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: appcolor.colorwhite),
+                        ),
+                      ),
+                    ],
+                  )),
             )
           ],
         ),
