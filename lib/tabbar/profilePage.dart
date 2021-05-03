@@ -64,11 +64,12 @@ class _profilepageState extends State<profilepage> {
                 right: 20.0,
                 left: 20.0),
             child: new Container(
-              height: 340.0,
+              height:MediaQuery.of(context).size.height/2.3,
               width: MediaQuery.of(context).size.width,
               child: new Card(
+
                 color: Colors.white,
-                elevation: 4.0,
+                elevation: 9.0,
                 child: Column(
                   children: [
                     ListTile(
@@ -111,10 +112,11 @@ class _profilepageState extends State<profilepage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                      IconButton(
-                        icon: Icon(Icons.edit),
-                      )
-                    ],)
+                        IconButton(
+                          icon: Icon(Icons.edit),
+                        )
+                      ],
+                    )
                   ],
                 ),
               ),

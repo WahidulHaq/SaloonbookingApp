@@ -35,44 +35,44 @@ class _dashboardState extends State<dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: appcolor.colorwhite,
-        body: Container(
-          height: MediaQuery.of(context).size.height / 1,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                height: 200,
-                child: Carousel(
-                  images: [
-                    AssetImage("assets/client2.jpeg"),
-                    AssetImage("assets/client3.jpeg"),
-                    AssetImage("assets/client4.jpeg"),
-                    AssetImage("assets/client5.jpeg"),
-                    AssetImage("assets/client6.jpeg")
-                  ],
-                  dotSize: 2.0,
-                  dotSpacing: 10.0,
-                  dotColor: Colors.lightGreenAccent,
-                  indicatorBgPadding: 5.0,
-                  dotBgColor: Colors.purple.withOpacity(0.5),
-                  borderRadius: false,
-                  moveIndicatorFromBottom: 180.0,
-                  noRadiusForIndicator: true,
-                  overlayShadow: true,
-                  overlayShadowColors: Colors.white,
-                  overlayShadowSize: 0.7,
+        body: SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height / 1,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  height: 200,
+                  child: Carousel(
+                    images: [
+                      AssetImage("assets/client2.jpeg"),
+                      AssetImage("assets/client3.jpeg"),
+                      AssetImage("assets/client4.jpeg"),
+                      AssetImage("assets/client5.jpeg"),
+                      AssetImage("assets/client6.jpeg")
+                    ],
+                    dotSize: 2.0,
+                    dotSpacing: 10.0,
+                    dotColor: Colors.lightGreenAccent,
+                    indicatorBgPadding: 5.0,
+                    dotBgColor: Colors.purple.withOpacity(0.5),
+                    borderRadius: false,
+                    moveIndicatorFromBottom: 180.0,
+                    noRadiusForIndicator: true,
+                    overlayShadow: true,
+                    overlayShadowColors: Colors.white,
+                    overlayShadowSize: 0.7,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Select your services",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Select your services",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-              SingleChildScrollView(
-                child: Expanded(
-                  flex: 1,
+                SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
                   child: GridView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
@@ -83,6 +83,8 @@ class _dashboardState extends State<dashboard> {
                         mainAxisSpacing: 5.0),
                     itemBuilder: (BuildContext context, int index) {
                       return ListView(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -94,13 +96,6 @@ class _dashboardState extends State<dashboard> {
                                   width: 100,
                                 ),
                               ),
-
-                              //Image.asset(imagestr[index]),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
                               Text(
                                 title[index],
                                 style: TextStyle(
@@ -112,11 +107,18 @@ class _dashboardState extends State<dashboard> {
                       );
                     },
                   ),
-
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Hair Specialist",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ),
 
-            ],
+
+              ],
+            ),
           ),
         ));
   }
