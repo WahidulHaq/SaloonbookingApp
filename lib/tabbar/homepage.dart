@@ -157,6 +157,7 @@ class _homepageState extends State<homepage>
         ],
       ),
       body: Container(
+        height: MediaQuery.of(context).size.height/1,
         child: Center(
           child: TabBarView(
             controller: _tabController,
