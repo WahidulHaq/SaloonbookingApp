@@ -51,7 +51,7 @@ class _appointmentpageState extends State<appointmentpage> {
                   "assets/client3.jpeg",
                 )),
                 Padding(
-                  padding: const EdgeInsets.only(top: 0),
+                  padding: const EdgeInsets.only(top: 100),
                   child: StreamBuilder(
                     builder: (context, snapshot) => searchbar(),
                   ),

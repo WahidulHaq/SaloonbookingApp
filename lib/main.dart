@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saloonbooking_aap/screens/editprofilePage.dart';
 import 'package:saloonbooking_aap/screens/forgotpassword.dart';
 import 'package:saloonbooking_aap/screens/loginpage.dart';
 import 'package:saloonbooking_aap/screens/otppage.dart';
@@ -15,6 +16,6 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: "Saloon Appointment",
-    home: homepage(),
+    home: editprofilePage(),
   ));
 }

@@ -15,9 +15,9 @@ class _splashscreenState extends State<splashscreen> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 3),
-        () => Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => secondscreen())));
+        Duration(seconds: 20),
+        () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (BuildContext context) => secondscreen())));
   }
 
   Widget build(BuildContext context) {
@@ -28,9 +28,12 @@ class _splashscreenState extends State<splashscreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ClipRRect(
-              borderRadius: BorderRadius.circular(100),
-              child:
-                  Image.asset('assets/splash_01.png', width: 200, height: 200)),
+              borderRadius: BorderRadius.circular(150),
+              child: ColorFiltered(
+                colorFilter: ColorFilter.mode(Colors.white, BlendMode.color),
+                child: Image.asset('assets/bh_hairSalonLogo.png',
+                    width: 300, height: 300),
+              )),
           Text(
             "Salong",
             style: TextStyle(

@@ -33,9 +33,23 @@ class _profilepageState extends State<profilepage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        CircleAvatar(
-                          backgroundImage: AssetImage("assets/persone.jpeg"),
-                          radius: 50.0,
+                        Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                    spreadRadius: 2,blurRadius: 10,
+                                    color: Colors.black.withOpacity(0.1),
+                                    offset: Offset(0,10)
+                                )
+                              ],
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                  width: 4,
+                                  color: Theme.of(context).scaffoldBackgroundColor)),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage("assets/persone.jpeg"),
+                            radius: 50.0,
+                          ),
                         ),
                         SizedBox(
                           height: 10.0,

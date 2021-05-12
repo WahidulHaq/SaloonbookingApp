@@ -50,6 +50,7 @@ class _dashboardState extends State<dashboard> {
         body: ListView(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
+          physics: BouncingScrollPhysics(),
           children: [
             Container(
               height: MediaQuery.of(context).size.height,
@@ -144,7 +145,7 @@ class _dashboardState extends State<dashboard> {
                     ],
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height/5,
+                    height: MediaQuery.of(context).size.height/6,
                     child: PageView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: imagestr.length,
@@ -167,16 +168,6 @@ class _dashboardState extends State<dashboard> {
                                       imagestr[_index],
                                       width: 80,
                                       fit: BoxFit.fitWidth,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      hairstyleName[_index],
-                                      style: TextStyle(
-                                          color: appcolor.colorwhite,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15),
                                     ),
                                   ),
                                   Padding(
