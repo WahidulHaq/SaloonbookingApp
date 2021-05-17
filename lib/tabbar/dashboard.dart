@@ -8,17 +8,6 @@ class dashboard extends StatefulWidget {
 }
 
 class _dashboardState extends State<dashboard> {
-  List<String> imagestr = [
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-  ];
   List<String> title = [
     "BeardCut",
     "Facial",
@@ -41,6 +30,18 @@ class _dashboardState extends State<dashboard> {
     "Detox",
     "White Skin Care"
   ];
+  List<String> imagestr = [
+    "assets/categoryimg/haircut.jpeg",
+    "assets/categoryimg/haircut.jpeg",
+    "assets/categoryimg/haircut.jpeg",
+    "assets/categoryimg/haircut.jpeg",
+    "assets/categoryimg/haircut.jpeg",
+    "assets/categoryimg/haircut.jpeg",
+    "assets/categoryimg/haircut.jpeg",
+    "assets/categoryimg/haircut.jpeg",
+    "assets/categoryimg/haircut.jpeg",
+  ];
+
   int _index = 0;
 
   @override
@@ -144,48 +145,90 @@ class _dashboardState extends State<dashboard> {
                       ),
                     ],
                   ),
+                  // *********** HAIR SPECIALIST **************//
                   Container(
-                    height: MediaQuery.of(context).size.height/6,
-                    child: PageView.builder(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    height: 70,
+                    child: ListView.builder(
+                      shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemCount: imagestr.length,
-                      controller: PageController(viewportFraction: 0.4),
-                      onPageChanged: (int index) =>
-                          setState(() => _index = index),
-                      itemBuilder: (_, i) {
-                        return Transform.scale(
-                          scale: i == _index ? 1 : 0.7,
-                          child: Card(
-                              color: appcolor.bgcolor,
-                              elevation: 6,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Image.asset(
-                                      imagestr[_index],
-                                      width: 80,
-                                      fit: BoxFit.fitWidth,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      hairstyleName[_index],
-                                      style: TextStyle(
-                                          color: appcolor.colorwhite,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15),
-                                    ),
-                                  ),
-                                ],
-                              )),
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: EdgeInsets.only(right: 16),
+                          child: Stack(
+                            children: <Widget>[
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(6),
+                                child: Image.asset(
+                                  imagestr[index],
+                                  width: 120,
+                                  height: 60,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(6),
+                                  color: Colors.black26
+                                ),
+                                  width: 120,
+                                  height: 60,
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    hairstyleName[index],
+                                    style: TextStyle(
+                                        fontSize: 14,fontWeight: FontWeight.w700,
+                                        color: appcolor.colorwhite),
+                                  ))
+                            ],
+                          ),
                         );
                       },
                     ),
-                  ),
+                  )
+                  // Container(
+                  //   height: MediaQuery.of(context).size.height/6,
+                  //   child: PageView.builder(
+                  //     scrollDirection: Axis.horizontal,
+                  //     itemCount: imagestr.length,
+                  //     controller: PageController(viewportFraction: 0.4),
+                  //     onPageChanged: (int index) =>
+                  //         setState(() => _index = index),
+                  //     itemBuilder: (_, i) {
+                  //       return Transform.scale(
+                  //         scale: i == _index ? 1 : 0.7,
+                  //         child: Card(
+                  //             color: appcolor.bgcolor,
+                  //             elevation: 6,
+                  //             shape: RoundedRectangleBorder(
+                  //                 borderRadius: BorderRadius.circular(20)),
+                  //             child: Column(
+                  //               children: [
+                  //                 ClipRRect(
+                  //                   borderRadius: BorderRadius.circular(20),
+                  //                   child: Image.asset(
+                  //                     imagestr[_index],
+                  //                     width: 80,
+                  //                     fit: BoxFit.fitWidth,
+                  //                   ),
+                  //                 ),
+                  //                 Padding(
+                  //                   padding: const EdgeInsets.all(8.0),
+                  //                   child: Text(
+                  //                     hairstyleName[_index],
+                  //                     style: TextStyle(
+                  //                         color: appcolor.colorwhite,
+                  //                         fontWeight: FontWeight.bold,
+                  //                         fontSize: 15),
+                  //                   ),
+                  //                 ),
+                  //               ],
+                  //             )),
+                  //       );
+                  //     },
+                  //   ),
+                  // ),
                 ],
               ),
             ),

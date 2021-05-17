@@ -56,31 +56,33 @@ class _homepageState extends State<homepage>
           children: <Widget>[
             DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.lightGreen[700],
+                  color: Colors.white,
                 ),
                 child: Column(
                   children: [
                     Container(
                       height: 70,
                       margin: EdgeInsets.only(bottom: 10),
-                     child:  CircleAvatar(
-                       backgroundImage: AssetImage("assets/persone.jpeg",),
-                       radius: 50.0,
-                     ),
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage(
+                          "assets/persone.jpeg",
+                        ),
+                        radius: 50.0,
+                      ),
                     ),
                     Text(
                       "Robert Jeison",
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: appcolor.colorwhite),
+                          color: appcolor.colorblack),
                     ),
                     Text(
                       "robartjeisone@gmail.com",
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: appcolor.colorwhite),
+                          color: appcolor.colorblack),
                     )
                   ],
                 )),
@@ -110,7 +112,8 @@ class _homepageState extends State<homepage>
       ),
       backgroundColor: appcolor.bgcolor,
       appBar: AppBar(
-        backgroundColor: appcolor.bgcolor,
+        backgroundColor: appcolor.colorwhite,
+        iconTheme: IconThemeData(color: appcolor.bgcolor),
       ),
       bottomNavigationBar: TabBar(
         controller: _tabController,
@@ -127,7 +130,6 @@ class _homepageState extends State<homepage>
             ),
             text: "Home",
           ),
-
           Tab(
             icon: Icon(
               Icons.calendar_today_outlined,
@@ -142,9 +144,11 @@ class _homepageState extends State<homepage>
             ),
             text: "Invox",
           ),
-
           Tab(
-            icon: Icon(Icons.shopping_cart_outlined,size: 20,),
+            icon: Icon(
+              Icons.shopping_cart_outlined,
+              size: 20,
+            ),
             text: "Cart",
           ),
           Tab(
@@ -157,7 +161,7 @@ class _homepageState extends State<homepage>
         ],
       ),
       body: Container(
-        height: MediaQuery.of(context).size.height/1,
+        height: MediaQuery.of(context).size.height / 1,
         child: Center(
           child: TabBarView(
             controller: _tabController,
@@ -174,4 +178,3 @@ class _homepageState extends State<homepage>
     );
   }
 }
-

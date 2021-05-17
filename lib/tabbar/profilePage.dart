@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:saloonbooking_aap/appThemes.dart';
 import 'package:flutter/material.dart';
 import 'package:saloonbooking_aap/main.dart';
+import 'package:saloonbooking_aap/screens/editprofilePage.dart';
 
 class profilepage extends StatefulWidget {
   @override
@@ -37,15 +38,16 @@ class _profilepageState extends State<profilepage> {
                           decoration: BoxDecoration(
                               boxShadow: [
                                 BoxShadow(
-                                    spreadRadius: 2,blurRadius: 10,
+                                    spreadRadius: 2,
+                                    blurRadius: 10,
                                     color: Colors.black.withOpacity(0.1),
-                                    offset: Offset(0,10)
-                                )
+                                    offset: Offset(0, 10))
                               ],
                               shape: BoxShape.circle,
                               border: Border.all(
                                   width: 4,
-                                  color: Theme.of(context).scaffoldBackgroundColor)),
+                                  color: Theme.of(context)
+                                      .scaffoldBackgroundColor)),
                           child: CircleAvatar(
                             backgroundImage: AssetImage("assets/persone.jpeg"),
                             radius: 50.0,
@@ -127,6 +129,12 @@ class _profilepageState extends State<profilepage> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => editprofilePage()));
+                            },
                             icon: Icon(Icons.edit),
                           )
                         ],

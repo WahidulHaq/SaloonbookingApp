@@ -10,6 +10,8 @@ class appcolor {
   static const Color googlecolor = const Color(0xffdb4a39);
   static const Color facbookcolor = const Color(0xff3b5998);
   static const Color daterangecolor = const Color(0xff008080);
+  static const Color colorblack = const Color(0xff000000) ;
+  static const Color colorgre = const Color(0xff808080);
 }
 
 class TextFormFieldWidget extends StatefulWidget {
