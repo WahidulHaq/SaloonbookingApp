@@ -112,6 +112,11 @@ class _homepageState extends State<homepage>
       ),
       backgroundColor: appcolor.bgcolor,
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(Icons.notifications,size: 25,),
+          )
+        ],
         backgroundColor: appcolor.colorwhite,
         iconTheme: IconThemeData(color: appcolor.bgcolor),
       ),

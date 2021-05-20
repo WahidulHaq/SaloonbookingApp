@@ -75,13 +75,14 @@ class _profilepageState extends State<profilepage> {
             // incase if you wanted bottom padding to work,
             // set the `alignment` of container to Alignment.bottomCenter
             new Container(
+             // height: MediaQuery.of(context).size.height,
               alignment: Alignment.topCenter,
               padding: new EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * .30,
+                  top: MediaQuery.of(context).size.height * .35,
                   right: 20.0,
                   left: 20.0),
               child: new Container(
-                height: MediaQuery.of(context).size.height / 2.3,
+                height: MediaQuery.of(context).size.height / 1.6,
                 width: MediaQuery.of(context).size.width,
                 child: new Card(
                   color: Colors.white,

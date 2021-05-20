@@ -40,6 +40,8 @@ class _editprofilePageState extends State<editprofilePage> {
         ),
       ),
       body: Container(
+        margin: EdgeInsets.only(left: 10,right: 10),
+
         child: GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();

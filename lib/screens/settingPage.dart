@@ -24,89 +24,92 @@ class _settingPageState extends State<settingPage> {
           ),
         ),
       ),
-      body: ListView(
-        children: [
-          Text(
-            "Settings",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Row(
-            children: [
-              Icon(
-                Icons.person,
-                color: Colors.green,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                "Account",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              )
-            ],
-          ),
-          Divider(
-            thickness: 2.0,
-            height: 15,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          _builAccountOptionRow(context, "Change Password"),
-          _builAccountOptionRow(context, "Content Setting"),
-          _builAccountOptionRow(context, "Social"),
-          _builAccountOptionRow(context, "Language"),
-          _builAccountOptionRow(context, "Privecy and security"),
-          SizedBox(
-            height: 40,
-          ),
-          Row(
-            children: [
-              Icon(
-                Icons.volume_down_outlined,
-                color: Colors.green,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                "Notification",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-          Divider(
-            height: 10,
-            thickness: 2.0,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          _builNotificationOptionRow("News for you", true),
-          _builNotificationOptionRow("Account activity", true),
-          _builNotificationOptionRow("Opportunity", false),
-          SizedBox(
-            height: 40,
-          ),
-          Center(
-            child: OutlineButton(
-              padding: EdgeInsets.symmetric(horizontal: 40),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0)),
-              onPressed: () {},
-              child: Text(
-                "Sign Out",
-                style: TextStyle(
-                    fontSize: 16,
-                    letterSpacing: 2.2,
-                    color: appcolor.colorblack),
-              ),
+      body: Container(
+        margin: EdgeInsets.only(left: 10,right: 10),
+        child: ListView(
+          children: [
+            Text(
+              "Settings",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
             ),
-          )
-        ],
+            SizedBox(
+              height: 40,
+            ),
+            Row(
+              children: [
+                Icon(
+                  Icons.person,
+                  color: Colors.green,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Account",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
+            Divider(
+              thickness: 2.0,
+              height: 15,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            _builAccountOptionRow(context, "Change Password"),
+            _builAccountOptionRow(context, "Content Setting"),
+            _builAccountOptionRow(context, "Social"),
+            _builAccountOptionRow(context, "Language"),
+            _builAccountOptionRow(context, "Privecy and security"),
+            SizedBox(
+              height: 40,
+            ),
+            Row(
+              children: [
+                Icon(
+                  Icons.volume_down_outlined,
+                  color: Colors.green,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Notification",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            Divider(
+              height: 10,
+              thickness: 2.0,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            _builNotificationOptionRow("News for you", true),
+            _builNotificationOptionRow("Account activity", true),
+            _builNotificationOptionRow("Opportunity", false),
+            SizedBox(
+              height: 40,
+            ),
+            Center(
+              child: OutlineButton(
+                padding: EdgeInsets.symmetric(horizontal: 40),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {},
+                child: Text(
+                  "Sign Out",
+                  style: TextStyle(
+                      fontSize: 16,
+                      letterSpacing: 2.2,
+                      color: appcolor.colorblack),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

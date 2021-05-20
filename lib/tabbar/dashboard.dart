@@ -20,26 +20,38 @@ class _dashboardState extends State<dashboard> {
     "White Skin Care"
   ];
   List<String> hairstyleName = [
-    "BeardCut",
-    "Facial",
-    "HairCut",
-    "HairColor",
-    "HairSpa",
-    "ManiPedi",
-    "Waxing",
-    "Detox",
-    "White Skin Care"
+    "Bibek",
+    "Drew",
+    "Jonas",
+    "Joseph",
+    "Kal almond",
+    "Mahdi",
+    "Matt sing",
+    "Saffu",
+    "Valerie"
   ];
   List<String> imagestr = [
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
-    "assets/categoryimg/haircut.jpeg",
+    "assets/hairstyler/bibek.jpg",
+    "assets/hairstyler/drew.jpg",
+    "assets/hairstyler/jonas.jpg",
+    "assets/hairstyler/joseph.jpg",
+    "assets/hairstyler/kal.jpg",
+    "assets/hairstyler/mahdi.jpg",
+    "assets/hairstyler/mattsing.jpg",
+    "assets/hairstyler/saffu.jpg",
+    "assets/hairstyler/valerie.jpg",
+
+  ];
+  List<String> serviceImages = [
+    "assets/servicesimages/bearcut.jpg",
+    "assets/servicesimages/facial.jpg",
+    "assets/servicesimages/haircut.jpg",
+    "assets/servicesimages/haircolor.jpg",
+    "assets/servicesimages/hairspa.jpg",
+    "assets/servicesimages/menipedi.jpg",
+    "assets/servicesimages/waxing.jpg",
+    "assets/servicesimages/detoxspa.jpg",
+    "assets/servicesimages/whiteskin.jpg",
   ];
 
   int _index = 0;
@@ -86,7 +98,7 @@ class _dashboardState extends State<dashboard> {
                     child: Text(
                       "Select your services",
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                   SingleChildScrollView(
@@ -96,7 +108,7 @@ class _dashboardState extends State<dashboard> {
                       scrollDirection: Axis.vertical,
                       itemCount: imagestr.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
+                          crossAxisCount: 4,
                           crossAxisSpacing: 5.0,
                           mainAxisSpacing: 5.0),
                       itemBuilder: (BuildContext context, int index) {
@@ -111,7 +123,7 @@ class _dashboardState extends State<dashboard> {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(80.0),
                                     child: Image.asset(
-                                      imagestr[index],
+                                      serviceImages[index],
                                       width: 100,
                                     ),
                                   ),
@@ -135,7 +147,7 @@ class _dashboardState extends State<dashboard> {
                       Text(
                         "Hair Specialist",
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "View all",
@@ -148,7 +160,7 @@ class _dashboardState extends State<dashboard> {
                   // *********** HAIR SPECIALIST **************//
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 16),
-                    height: 70,
+                    height: 100,
                     child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -163,22 +175,23 @@ class _dashboardState extends State<dashboard> {
                                 child: Image.asset(
                                   imagestr[index],
                                   width: 120,
-                                  height: 60,
+                                  height: 100,
                                   fit: BoxFit.cover,
                                 ),
                               ),
                               Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6),
-                                  color: Colors.black26
-                                ),
+
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(6),
+                                      color: Colors.black26),
                                   width: 120,
-                                  height: 60,
+                                  height: 100,
                                   alignment: Alignment.center,
                                   child: Text(
                                     hairstyleName[index],
                                     style: TextStyle(
-                                        fontSize: 14,fontWeight: FontWeight.w700,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
                                         color: appcolor.colorwhite),
                                   ))
                             ],
