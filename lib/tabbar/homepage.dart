@@ -114,11 +114,17 @@ class _homepageState extends State<homepage>
       appBar: AppBar(
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications,size: 25,),
+            icon: Icon(Icons.location_on,size: 25,color: appcolor.colorblack,),
+
+          ),
+          IconButton(
+            icon: Icon(Icons.notifications,size: 25,color: appcolor.colorblack,),
+
           )
+
         ],
         backgroundColor: appcolor.colorwhite,
-        iconTheme: IconThemeData(color: appcolor.bgcolor),
+        iconTheme: IconThemeData(color: appcolor.colorblack),
       ),
       bottomNavigationBar: TabBar(
         controller: _tabController,
@@ -166,7 +172,7 @@ class _homepageState extends State<homepage>
         ],
       ),
       body: Container(
-        height: MediaQuery.of(context).size.height / 1,
+        height: MediaQuery.of(context).size.height /1,
         child: Center(
           child: TabBarView(
             controller: _tabController,

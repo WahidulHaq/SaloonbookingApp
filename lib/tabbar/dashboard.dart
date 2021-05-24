@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:saloonbooking_aap/appThemes.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:saloonbooking_aap/helper/constant.dart';
 
 class dashboard extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class dashboard extends StatefulWidget {
 }
 
 class _dashboardState extends State<dashboard> {
+  ConstantVaeriable constant = ConstantVaeriable();
   List<String> title = [
     "BeardCut",
     "Facial",
@@ -40,7 +42,6 @@ class _dashboardState extends State<dashboard> {
     "assets/hairstyler/mattsing.jpg",
     "assets/hairstyler/saffu.jpg",
     "assets/hairstyler/valerie.jpg",
-
   ];
   List<String> serviceImages = [
     "assets/servicesimages/bearcut.jpg",
@@ -48,10 +49,23 @@ class _dashboardState extends State<dashboard> {
     "assets/servicesimages/haircut.jpg",
     "assets/servicesimages/haircolor.jpg",
     "assets/servicesimages/hairspa.jpg",
-    "assets/servicesimages/menipedi.jpg",
+    "assets/servicesimages/menipedi.jpeg",
     "assets/servicesimages/waxing.jpg",
     "assets/servicesimages/detoxspa.jpg",
     "assets/servicesimages/whiteskin.jpg",
+  ];
+  List<String> sliderimage = [
+    "assets/client2.jpeg",
+    "assets/client3.jpeg",
+    "assets/client4.jpeg",
+    "assets/client5.jpeg",
+    "assets/client6.jpeg",
+    "assets/client7.jpeg",
+    "assets/client_01.jpeg",
+  ];
+  List<String> cardImages = [
+    "assets/hairstyler/bibek.jpg",
+    "assets/hairstyler/joseph.jpg",
   ];
 
   int _index = 0;
@@ -61,191 +75,172 @@ class _dashboardState extends State<dashboard> {
     return Scaffold(
         backgroundColor: appcolor.colorwhite,
         body: ListView(
-          scrollDirection: Axis.vertical,
           shrinkWrap: true,
-          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    height: 200,
-                    child: Carousel(
-                      images: [
-                        AssetImage("assets/client2.jpeg"),
-                        AssetImage("assets/client3.jpeg"),
-                        AssetImage("assets/client4.jpeg"),
-                        AssetImage("assets/client5.jpeg"),
-                        AssetImage("assets/client6.jpeg")
-                      ],
-                      dotSize: 2.0,
-                      dotSpacing: 10.0,
-                      dotColor: Colors.lightGreenAccent,
-                      indicatorBgPadding: 5.0,
-                      dotBgColor: Colors.purple.withOpacity(0.5),
-                      borderRadius: false,
-                      moveIndicatorFromBottom: 180.0,
-                      noRadiusForIndicator: true,
-                      overlayShadow: true,
-                      overlayShadowColors: Colors.white,
-                      overlayShadowSize: 0.7,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "Select your services",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: imagestr.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 4,
-                          crossAxisSpacing: 5.0,
-                          mainAxisSpacing: 5.0),
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          child: ListView(
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(80.0),
-                                    child: Image.asset(
-                                      serviceImages[index],
-                                      width: 100,
-                                    ),
-                                  ),
-                                  Text(
-                                    title[index],
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Hair Specialist",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "View all",
-                        style: TextStyle(
-                          fontSize: 13,
-                        ),
-                      ),
-                    ],
-                  ),
-                  // *********** HAIR SPECIALIST **************//
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    height: 100,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: imagestr.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: EdgeInsets.only(right: 16),
-                          child: Stack(
-                            children: <Widget>[
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(6),
-                                child: Image.asset(
-                                  imagestr[index],
-                                  width: 120,
-                                  height: 100,
-                                  fit: BoxFit.cover,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  height: MediaQuery.of(context).size.height,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.only(right: 16, top: 30),
+                        height: 200,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: sliderimage.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                              margin: EdgeInsets.all(10),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Stack(
+                                  children: [
+                                    Image.asset(sliderimage[index]),
+                                  ],
                                 ),
                               ),
-                              Container(
+                            );
+                          },
+                        ),
+                      ),
+                         Expanded(
+                           flex: 2,
+                           child: GridView.builder(
+                            physics: ScrollPhysics(),
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: cardImages.length,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 5.0,
+                              mainAxisSpacing: 5.0,
+                            ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return ListTile(
+                                  isThreeLine: true,
+                                  title: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.asset(
+                                      cardImages[index],
+                                      height: 150,
+                                      fit: BoxFit.fitWidth,
+                                    ),
+                                  ),
+                                  subtitle: Column(
+                                    children: [
+                                      Text(
+                                        "Find The Hairstylist \nNear You ",
+                                        style: TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black),
+                                      ),
+                                      Text(
+                                        "Book you Favourite Hair Stylist",
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    ],
+                                  ));
+                            },
+                        ),
+                         ),
 
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(6),
-                                      color: Colors.black26),
-                                  width: 120,
-                                  height: 100,
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    hairstyleName[index],
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w700,
-                                        color: appcolor.colorwhite),
-                                  ))
-                            ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Divider(
+                          thickness: 2.0,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Book appoointment with top \nspecialist hairstylist in your city",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
                           ),
-                        );
-                      },
-                    ),
-                  )
-                  // Container(
-                  //   height: MediaQuery.of(context).size.height/6,
-                  //   child: PageView.builder(
-                  //     scrollDirection: Axis.horizontal,
-                  //     itemCount: imagestr.length,
-                  //     controller: PageController(viewportFraction: 0.4),
-                  //     onPageChanged: (int index) =>
-                  //         setState(() => _index = index),
-                  //     itemBuilder: (_, i) {
-                  //       return Transform.scale(
-                  //         scale: i == _index ? 1 : 0.7,
-                  //         child: Card(
-                  //             color: appcolor.bgcolor,
-                  //             elevation: 6,
-                  //             shape: RoundedRectangleBorder(
-                  //                 borderRadius: BorderRadius.circular(20)),
-                  //             child: Column(
-                  //               children: [
-                  //                 ClipRRect(
-                  //                   borderRadius: BorderRadius.circular(20),
-                  //                   child: Image.asset(
-                  //                     imagestr[_index],
-                  //                     width: 80,
-                  //                     fit: BoxFit.fitWidth,
-                  //                   ),
-                  //                 ),
-                  //                 Padding(
-                  //                   padding: const EdgeInsets.all(8.0),
-                  //                   child: Text(
-                  //                     hairstyleName[_index],
-                  //                     style: TextStyle(
-                  //                         color: appcolor.colorwhite,
-                  //                         fontWeight: FontWeight.bold,
-                  //                         fontSize: 15),
-                  //                   ),
-                  //                 ),
-                  //               ],
-                  //             )),
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
-                ],
-              ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Over 40 lakh satisfied Customer Stories to help you choose",
+                          style: TextStyle(fontWeight: FontWeight.w500,color: appcolor.colorgre),
+                        ),
+                      ),
+                     /* Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Divider(
+                          thickness: 2.0,
+                        ),
+                      ),*/
+
+                      ///******* GRIDEVIEW PAGE *********/////
+                      GrideViewPage()
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ));
+  }
+}
+
+class GrideViewPage extends StatefulWidget {
+  @override
+  _GrideViewPageState createState() => _GrideViewPageState();
+}
+
+class _GrideViewPageState extends State<GrideViewPage> {
+  List<String> serviceImages = [
+    "assets/servicesimages/bearcut.jpg",
+    "assets/servicesimages/facial.jpg",
+    "assets/servicesimages/haircut.jpg",
+    "assets/servicesimages/haircolor.jpg",
+    "assets/servicesimages/hairspa.jpg",
+    "assets/servicesimages/menipedi.jpeg",
+    "assets/servicesimages/waxing.jpg",
+    "assets/servicesimages/detoxspa.jpg",
+    "assets/servicesimages/whiteskin.jpg",
+  ];
+
+  List<String> titleName = [""];
+  List<String> description = [""];
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 1,
+      child: GridView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 5.0,
+          mainAxisSpacing: 5.0,
+        ),
+        itemCount: serviceImages.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Image.asset(serviceImages[index]),
+            subtitle: Column(
+              children: [
+
+              ],
+            ),
+          );
+        },
+      ),
+    );
   }
 }
