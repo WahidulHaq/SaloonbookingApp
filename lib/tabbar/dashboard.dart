@@ -78,118 +78,118 @@ class _dashboardState extends State<dashboard> {
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  height: MediaQuery.of(context).size.height,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.only(right: 16, top: 30),
-                        height: 200,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: sliderimage.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              margin: EdgeInsets.all(10),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Stack(
-                                  children: [
-                                    Image.asset(sliderimage[index]),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                         Expanded(
-                           flex: 2,
-                           child: GridView.builder(
-                            physics: ScrollPhysics(),
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: cardImages.length,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 5.0,
-                              mainAxisSpacing: 5.0,
+            Container(
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(right: 16, top: 30),
+                    height: 200,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: sliderimage.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          margin: EdgeInsets.all(10),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Stack(
+                              children: [
+                                Image.asset(sliderimage[index]),
+                              ],
                             ),
-                            itemBuilder: (BuildContext context, int index) {
-                              return ListTile(
-                                  isThreeLine: true,
-                                  title: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Image.asset(
-                                      cardImages[index],
-                                      height: 150,
-                                      fit: BoxFit.fitWidth,
-                                    ),
-                                  ),
-                                  subtitle: Column(
-                                    children: [
-                                      Text(
-                                        "Find The Hairstylist \nNear You ",
-                                        style: TextStyle(
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black),
-                                      ),
-                                      Text(
-                                        "Book you Favourite Hair Stylist",
-                                        style: TextStyle(fontSize: 15),
-                                      ),
-                                    ],
-                                  ));
-                            },
-                        ),
-                         ),
-
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Divider(
-                          thickness: 2.0,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Book appoointment with top \nspecialist hairstylist in your city",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
                           ),
-                        ),
+                        );
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: cardImages.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 5.0,
+                        mainAxisSpacing: 5.0,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Over 40 lakh satisfied Customer Stories to help you choose",
-                          style: TextStyle(fontWeight: FontWeight.w500,color: appcolor.colorgre),
-                        ),
+                      itemBuilder: (BuildContext context, int index) {
+                        return ListTile(
+                            isThreeLine: true,
+                            title: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                cardImages[index],
+                                height: 150,
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
+                            subtitle: Column(
+                              children: [
+                                Text(
+                                  "Find The Hairstylist \nNear You ",
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black),
+                                ),
+                                Text(
+                                  "Book you Favourite Hair Stylist",
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                              ],
+                            ));
+                      },
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Divider(
+                      thickness: 2.0,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Book appoointment with top \nspecialist hairstylist in your city",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
-                     /* Padding(
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Over 40 lakh satisfied Customer Stories to help you choose",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: appcolor.colorgre),
+                    ),
+                  ),
+                  /* Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Divider(
                           thickness: 2.0,
                         ),
                       ),*/
 
-                      ///******* GRIDEVIEW PAGE *********/////
-                      GrideViewPage()
-                    ],
-                  ),
-                ),
-              ],
+                  ///******* GRIDEVIEW PAGE *********/////
+                  GrideViewPage(),
+                  Container(
+                    height: 200,
+                    child: Text("slndndn"),
+                  )
+                ],
+              ),
             ),
           ],
         ));
@@ -213,34 +213,32 @@ class _GrideViewPageState extends State<GrideViewPage> {
     "assets/servicesimages/detoxspa.jpg",
     "assets/servicesimages/whiteskin.jpg",
   ];
-
   List<String> titleName = [""];
   List<String> description = [""];
+  List<ConstantVaeriable> veriablemodel = <ConstantVaeriable>
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 1,
-      child: GridView.builder(
-        shrinkWrap: true,
-        scrollDirection: Axis.vertical,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 5.0,
-          mainAxisSpacing: 5.0,
-        ),
-        itemCount: serviceImages.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            title: Image.asset(serviceImages[index]),
-            subtitle: Column(
-              children: [
+        flex: 1,
+        child: Container(
+          child: GridView.builder(
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 3,
+                  crossAxisSpacing: 3
+              ),
+              scrollDirection: Axis.vertical,
+              itemCount: service.length,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  title: Image.asset(serviceImages[index]),
+                );
+              }
 
-              ],
-            ),
-          );
-        },
-      ),
+          ),
+        )
     );
   }
 }
