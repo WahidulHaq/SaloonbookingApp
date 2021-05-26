@@ -260,7 +260,6 @@ class _dashboardState extends State<dashboard> {
                                   child: Text(
                                     "Lorem Ipsum is simply dummy text\nuse for printing and type script'",
                                     style: TextStyle(
-
                                         fontWeight: FontWeight.bold,
                                         fontSize: 15,
                                         color: appcolor.colorwhite),
@@ -275,6 +274,62 @@ class _dashboardState extends State<dashboard> {
                     );
                   },
                 ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+
+                children: [
+                  Flexible(
+                    child: Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Loreum Tools\nand stylist"),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Image.asset(
+                                "assets/toolsimages/ourtools1.jpg",
+                                width: 60,
+                                height: 60,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    child: Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Loreum Tools\nand stylist"),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(5),
+                                child: Image.asset(
+                                  "assets/toolsimages/ourtools2.jpg",
+                                  width: 60,
+                                  height: 60,
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
