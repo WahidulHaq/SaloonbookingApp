@@ -407,7 +407,7 @@ class _GrideViewPageState extends State<GrideViewPage> {
               crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20),
           scrollDirection: Axis.vertical,
           children: [
-            myCardWidget("assets/servicesimages/bearcut.jpg", " BeardCut",
+            myCardWidget("assets/servicesimages/bearcut.jpg", "BeardCut",
                 "Book Your appointment"),
             myCardWidget("assets/servicesimages/facial.jpg", "Facial",
                 "Find the experiance hairstylist"),
