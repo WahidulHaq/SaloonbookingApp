@@ -160,11 +160,13 @@ class _editprofilePageState extends State<editprofilePage> {
                     ),
                   )
                 ],
-              )
+              ),
             ],
+
           ),
         ),
       ),
+
     );
   }
 }
