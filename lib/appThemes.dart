@@ -219,3 +219,11 @@ class MyRaisedButton extends StatelessWidget {
     );
   }
 }
+class buildDivider extends StatelessWidget {
+  const buildDivider({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Divider(thickness: 2.0,);
+  }
+}

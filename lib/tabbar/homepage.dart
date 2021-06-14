@@ -14,6 +14,7 @@ class homepage extends StatefulWidget {
 class _homepageState extends State<homepage>
     with SingleTickerProviderStateMixin {
   int _currentIndex = 0;
+  String dropdownValue = 'Mumbai';
   TabController _tabController;
   final titels = [
     "Home",
@@ -113,6 +114,27 @@ class _homepageState extends State<homepage>
       backgroundColor: appcolor.bgcolor,
       appBar: AppBar(
         actions: [
+        DropdownButton<String>(
+        value: dropdownValue,
+        icon: const Icon(Icons.keyboard_arrow_down_rounded,),
+        iconSize: 24,
+        elevation: 16,
+
+        style: const TextStyle(color: Colors.deepPurple),
+        underline: SizedBox(),
+        onChanged: (String newValue) {
+          setState(() {
+            dropdownValue = newValue;
+          });
+        },
+        items: <String>['Mumbai', 'Pune', 'Nasik', 'Nagpur']
+            .map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value,style: TextStyle(color: appcolor.colorblack),),
+          );
+        }).toList(),
+      ),
           IconButton(
             icon: Icon(Icons.location_on,size: 25,color: appcolor.colorblack,),
 

@@ -8,6 +8,6 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: "Saloon Appointment",
-    home: splashscreen(),
+    home: homepage(),
   ));
 }

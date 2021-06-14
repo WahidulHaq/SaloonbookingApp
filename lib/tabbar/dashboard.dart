@@ -1,3 +1,5 @@
+import 'dart:core';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saloonbooking_aap/appThemes.dart';
 import 'package:carousel_pro/carousel_pro.dart';
@@ -11,7 +13,7 @@ class dashboard extends StatefulWidget {
 }
 
 class _dashboardState extends State<dashboard> {
-  //ConstantVaeriable constant = ConstantVaeriable();
+
 
   List<String> title = [
     "BeardCut",
@@ -279,7 +281,6 @@ class _dashboardState extends State<dashboard> {
                 height: 20,
               ),
               Row(
-
                 children: [
                   Flexible(
                     child: Card(
@@ -314,23 +315,39 @@ class _dashboardState extends State<dashboard> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text("Loreum Tools\nand stylist"),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(5),
-                                child: Image.asset(
-                                  "assets/toolsimages/ourtools2.jpg",
-                                  width: 60,
-                                  height: 60,
-                                ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+                              child: Image.asset(
+                                "assets/toolsimages/ourtools2.jpg",
+                                width: 60,
+                                height: 60,
                               ),
                             ),
+                          ),
                         ],
                       ),
                     ),
                   ),
                 ],
               ),
+              SizedBox(
+                height: 10,
+              ),
+              buildDivider(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Best offers for you",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+              ),
+              //////////////////****************////////////////
+              rategrideviewPage(),
+
+              SizedBox(height: 20,),
+              buildabout()
             ],
           ),
         ),
@@ -426,6 +443,218 @@ class _GrideViewPageState extends State<GrideViewPage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class rategrideviewPage extends StatefulWidget {
+  const rategrideviewPage({Key key}) : super(key: key);
+
+  @override
+  _rategrideviewPageState createState() => _rategrideviewPageState();
+}
+
+class _rategrideviewPageState extends State<rategrideviewPage> {
+  List<String> categorstyeNametitle = [
+    "Beard Cut With hair Style",
+    "Combo Offerr With Family Pack",
+    "Mani Pedi Pack",
+    "Bridal for Wedding ",
+    "Groom For Wedding Pack ",
+    "Completed Hair Style",
+    "Compete Facial Pack",
+    "Complete Hair Spa ",
+    "Waxing all Body ",
+    "Completed Hair Style",
+  ];
+  List<String> rate = [
+    "299",
+    "599",
+    "349",
+    "1099",
+    "1099",
+    "299",
+    "459",
+    "799",
+    "699",
+    "799",
+  ];
+  List<String> packageImageb = [
+    "assets/packagesImages/bearcutoffer.jpg",
+    "assets/packagesImages/bearcutoffer.jpg",
+    "assets/packagesImages/maniopedi.jpg",
+    "assets/packagesImages/bridal.jpg",
+    "assets/packagesImages/groom.jpg",
+    "assets/categoryimg/haircut.jpeg",
+    "assets/packagesImages/facialpacj.jpg",
+    "assets/packagesImages/hairspa.jpg",
+    "assets/packagesImages/waxing.jpg",
+    "assets/packagesImages/hairspa.jpg",
+  ];
+  List<String> discount = [
+    "Upto 15% OFF",
+    "Upto 15% OFF",
+    "Upto 20% OFF",
+    "10% Bridal caseback*",
+    "Upto 10% OFF",
+    "Upto 10% OFF",
+    "10% Facial cashback* ",
+    "Upto 15% OFF",
+    "15% Body Waxing cashback*",
+    "Upto 15% OFF",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final columnCount = 2;
+    final width = MediaQuery.of(context).size.width / columnCount;
+    const height = 350;
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.all(10.0),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        childAspectRatio: width / height,
+        crossAxisCount: columnCount,
+        mainAxisSpacing: 10.0,
+        crossAxisSpacing: 10.0,
+      ),
+      itemCount: packageImageb.length,
+      itemBuilder: (BuildContext contect, int index) {
+        return Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          elevation: 10.0,
+          child: InkWell(
+            onTap: null,
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    child: AspectRatio(
+                      aspectRatio: 1,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Image.asset(
+                          packageImageb[index],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    // height: 250,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 16),
+                  ),
+                  Text(
+                    "₹ ${rate[index]}",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      categorstyeNametitle[index],
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      discount[index],
+                      style: TextStyle(fontSize: 15, color: Colors.purple),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class buildabout extends StatefulWidget {
+  const buildabout({Key key}) : super(key: key);
+
+  @override
+  _buildaboutState createState() => _buildaboutState();
+}
+
+class _buildaboutState extends State<buildabout> {
+  List icons = [
+    Icons.person,
+    Icons.style,
+    Icons.shop_outlined,
+    Icons.message
+  ];
+  List<String> name = [
+    "Our User",
+    "Our Hair Sylist",
+    "Saloon",
+    "Customer Stories"
+  ];
+
+  List<String> count = ["2 Crores", "1 lakh", "500", "10 Lakh"];
+
+  @override
+  Widget build(BuildContext context) {
+    final columnCount = 2;
+    final width = MediaQuery.of(context).size.width / columnCount;
+    const height = 200;
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.all(10.0),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        childAspectRatio: width / height,
+        crossAxisCount: columnCount,
+        mainAxisSpacing: 0.0,
+        crossAxisSpacing: 0.0,
+      ),
+      itemCount: icons.length,
+      itemBuilder: (BuildContext context, int index) {
+        return GestureDetector(
+          onTap: null,
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Image.asset(
+                        icons[index],
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  // height: 250,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 16),
+                ),
+                Text(
+                  name[index],
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    count[index],
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
