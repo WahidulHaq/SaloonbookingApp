@@ -35,19 +35,12 @@ class _splashscreenState extends State<splashscreen> {
                     width: 300, height: 300),
               )),
           Text(
-            "Salong",
+            "Salong Hair Cut",
             style: TextStyle(
                 color: appcolor.colorwhite,
                 fontSize: 25,
                 fontWeight: FontWeight.bold),
           ),
-          Text(
-            "Hair Cut",
-            style: TextStyle(
-                color: appcolor.colorwhite,
-                fontSize: 25,
-                fontWeight: FontWeight.bold),
-          )
         ],
       )),
     );

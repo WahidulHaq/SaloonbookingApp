@@ -13,8 +13,6 @@ class dashboard extends StatefulWidget {
 }
 
 class _dashboardState extends State<dashboard> {
-
-
   List<String> title = [
     "BeardCut",
     "Facial",
@@ -346,8 +344,43 @@ class _dashboardState extends State<dashboard> {
               //////////////////****************////////////////
               rategrideviewPage(),
 
-              SizedBox(height: 20,),
-              buildabout()
+              SizedBox(
+                height: 20,
+              ),
+              buildDivider(),
+
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: GridView.count(
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 0.0,
+                    mainAxisSpacing: 0.0,
+                    children: List.generate(choices.length, (index) {
+                      return Center(
+                        child: SelectCard(choice: choices[index]),
+                      );
+                    })),
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height / 2,
+                color: appcolor.facbookcolor,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset('assets/bh_hairSalonLogo.png',
+                        width: 150, height: 200),
+                    Text(
+                      "Even geniuses can get things wrong. Look at Einstein’s unfortunate choice of "
+                          "a hairdresser, Joss Stirling Blessed are the hairstylists"
+                      " Anonymous It doesn’t matter if your life is perfect as long as "
+                          "your hair color is. ",
+                      style: TextStyle(color: appcolor.colorwhite,fontSize: 20,fontWeight: FontWeight.w600),
+                    ),
+                    Text("Made by Hair Saloon @ Technosys",style: TextStyle(color: appcolor.colorwhite,fontSize: 20),)
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -577,84 +610,49 @@ class _rategrideviewPageState extends State<rategrideviewPage> {
   }
 }
 
-class buildabout extends StatefulWidget {
-  const buildabout({Key key}) : super(key: key);
+class Choice {
+  const Choice({this.title, this.icon, this.subtitle});
 
-  @override
-  _buildaboutState createState() => _buildaboutState();
+  final String title;
+  final IconData icon;
+  final String subtitle;
 }
 
-class _buildaboutState extends State<buildabout> {
-  List icons = [
-    Icons.person,
-    Icons.style,
-    Icons.shop_outlined,
-    Icons.message
-  ];
-  List<String> name = [
-    "Our User",
-    "Our Hair Sylist",
-    "Saloon",
-    "Customer Stories"
-  ];
+const List<Choice> choices = const <Choice>[
+  const Choice(title: 'Our User', subtitle: '1 Crores', icon: Icons.person),
+  const Choice(
+      title: 'Our hair Stylist',
+      subtitle: '1 lakh',
+      icon: Icons.business_center),
+  const Choice(title: 'Saloons', subtitle: '10,000', icon: Icons.business),
+  const Choice(
+      title: 'Our Customer Stories', subtitle: '2 lakh', icon: Icons.message),
+];
 
-  List<String> count = ["2 Crores", "1 lakh", "500", "10 Lakh"];
+class SelectCard extends StatelessWidget {
+  const SelectCard({Key key, this.choice}) : super(key: key);
+  final Choice choice;
 
   @override
   Widget build(BuildContext context) {
-    final columnCount = 2;
-    final width = MediaQuery.of(context).size.width / columnCount;
-    const height = 200;
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      padding: EdgeInsets.all(10.0),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: width / height,
-        crossAxisCount: columnCount,
-        mainAxisSpacing: 0.0,
-        crossAxisSpacing: 0.0,
-      ),
-      itemCount: icons.length,
-      itemBuilder: (BuildContext context, int index) {
-        return GestureDetector(
-          onTap: null,
-          child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+    final TextStyle textStyle = Theme.of(context).textTheme.display1;
+    return Card(
+        color: Colors.white,
+        child: Center(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  child: AspectRatio(
-                    aspectRatio: 1,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Image.asset(
-                        icons[index],
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  // height: 250,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 16),
-                ),
+                Icon(choice.icon, size: 50.0, color: appcolor.facbookcolor),
+                Text(choice.title,
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: appcolor.colorgre,
+                        fontWeight: FontWeight.bold)),
                 Text(
-                  name[index],
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    count[index],
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
+                  choice.subtitle,
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                )
+              ]),
+        ));
   }
 }
