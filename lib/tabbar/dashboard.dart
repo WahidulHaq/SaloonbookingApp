@@ -156,7 +156,7 @@ class _dashboardState extends State<dashboard> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 30),
+                margin: EdgeInsets.only(top: 30,left: 10),
                 height: MediaQuery.of(context).size.height / 2.2,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -191,7 +191,7 @@ class _dashboardState extends State<dashboard> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Text(
                   "Book appoointment with top \nspecialist hairstylist in your city",
                   style: TextStyle(
@@ -363,19 +363,23 @@ class _dashboardState extends State<dashboard> {
                     })),
               ),
               Container(
-                height: MediaQuery.of(context).size.height / 2,
+                margin: EdgeInsets.all(0),
+                height: MediaQuery.of(context).size.height / 1.8,
                 color: appcolor.facbookcolor,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Image.asset('assets/bh_hairSalonLogo.png',
                         width: 150, height: 200),
-                    Text(
-                      "Even geniuses can get things wrong. Look at Einstein’s unfortunate choice of "
-                          "a hairdresser, Joss Stirling Blessed are the hairstylists"
-                      " Anonymous It doesn’t matter if your life is perfect as long as "
-                          "your hair color is. ",
-                      style: TextStyle(color: appcolor.colorwhite,fontSize: 20,fontWeight: FontWeight.w600),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Even geniuses can get things wrong. Look at Einstein’s unfortunate choice of "
+                            "a hairdresser, Joss Stirling Blessed are the hairstylists"
+                        " Anonymous It doesn’t matter if your life is perfect as long as "
+                            "your hair color is. ",
+                        style: TextStyle(color: appcolor.colorwhite,fontSize: 20,fontWeight: FontWeight.w600),
+                      ),
                     ),
                     Text("Made by Hair Saloon @ Technosys",style: TextStyle(color: appcolor.colorwhite,fontSize: 20),)
                   ],
