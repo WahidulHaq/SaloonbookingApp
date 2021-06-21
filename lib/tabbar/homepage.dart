@@ -20,19 +20,23 @@ class _homepageState extends State<homepage>
     "Home",
     "Appointment",
     "Profile",
+    "My HairStylist",
     "Payment",
     "Notification",
     "Settings",
-    "Sign Out"
+    "Sign Out",
+    "Like us? Give us 5 stars"
   ];
   final icons = [
     Icons.home,
     Icons.calendar_today_sharp,
     Icons.person_outline_sharp,
+    Icons.person,
     Icons.account_balance_wallet_outlined,
     Icons.add_alert,
     Icons.settings,
-    Icons.power_settings_new_outlined
+    Icons.power_settings_new_outlined,
+    Icons.thumb_up_off_alt
   ];
 
   void onTabTapped(int index) {
@@ -40,7 +44,7 @@ class _homepageState extends State<homepage>
       _currentIndex = index;
     });
   }
-
+  ScrollController _scrollController = new ScrollController();
   @override
   void initState() {
     // TODO: implement initState
@@ -91,6 +95,7 @@ class _homepageState extends State<homepage>
               color: appcolor.bgcolor,
               height: MediaQuery.of(context).size.height / 1,
               child: ListView.builder(
+              controller: _scrollController,
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 itemCount: titels.length,
@@ -104,10 +109,12 @@ class _homepageState extends State<homepage>
                       titels[index],
                       style: TextStyle(color: appcolor.colorwhite),
                     ),
+                    trailing: Icon(Icons.arrow_forward_ios,color: appcolor.colorwhite,),
                   );
                 },
               ),
             ),
+            Divider(thickness: 2.0,)
           ],
         ),
       ),
