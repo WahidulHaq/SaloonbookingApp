@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:saloonbooking_aap/appThemes.dart';
 import 'package:saloonbooking_aap/tabbar/appintmentpage.dart';
 import 'package:saloonbooking_aap/tabbar/cartpage.dart';
-import 'package:saloonbooking_aap/tabbar/chatpage.dart';
+import 'package:saloonbooking_aap/chatscreen/chatpage.dart';
 import 'package:saloonbooking_aap/tabbar/dashboard.dart';
 import 'package:saloonbooking_aap/tabbar/profilePage.dart';
 
@@ -20,7 +20,7 @@ class _homepageState extends State<homepage>
     "Home",
     "Appointment",
     "Profile",
-    "My HairStylist",
+    "My Hair Stylist",
     "Payment",
     "Notification",
     "Settings",
@@ -178,9 +178,14 @@ class _homepageState extends State<homepage>
             text: "Appointment",
           ),
           Tab(
-            icon: Icon(
-              Icons.message,
-              size: 20,
+            icon: InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> chatapp()));
+              },
+              child: Icon(
+                Icons.message,
+                size: 20,
+              ),
             ),
             text: "Invox",
           ),

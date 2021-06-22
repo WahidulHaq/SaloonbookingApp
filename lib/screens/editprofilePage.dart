@@ -40,8 +40,7 @@ class _editprofilePageState extends State<editprofilePage> {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.only(left: 10,right: 10),
-
+        margin: EdgeInsets.only(left: 10, right: 10),
         child: GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();
@@ -134,6 +133,7 @@ class _editprofilePageState extends State<editprofilePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   OutlineButton(
+                    onPressed: (){Navigator.pop(context);},
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
@@ -162,11 +162,9 @@ class _editprofilePageState extends State<editprofilePage> {
                 ],
               ),
             ],
-
           ),
         ),
       ),
-
     );
   }
 }
@@ -178,6 +176,19 @@ Widget buildTextField(
     child: TextField(
       obscureText: isPasswordtextfield,
       decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: appcolor.colorgre, width: 0.0),
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: appcolor.colorwhite),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: appcolor.bgcolor),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: appcolor.bgcolor),
+          ),
           suffixIcon: isPasswordtextfield
               ? IconButton(
                   icon: Icon(
@@ -191,7 +202,7 @@ Widget buildTextField(
           labelText: labeltext,
           hintText: placeholder,
           hintStyle: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+              fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black)),
     ),
   );
 }

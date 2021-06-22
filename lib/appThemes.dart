@@ -80,7 +80,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           hintText: widget.hintText,
           labelText: widget.labelText,
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: appcolor.colorwhite, width: 1.0),
+            borderSide: BorderSide(color: appcolor.colorgre, width: 1.0),
             borderRadius: BorderRadius.circular(0.0),
           ),
           focusedBorder: OutlineInputBorder(
