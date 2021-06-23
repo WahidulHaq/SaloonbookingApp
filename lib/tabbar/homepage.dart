@@ -49,7 +49,7 @@ class _homepageState extends State<homepage>
   void initState() {
     // TODO: implement initState
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -189,13 +189,13 @@ class _homepageState extends State<homepage>
             ),
             text: "Invox",
           ),
-          Tab(
+         /* Tab(
             icon: Icon(
               Icons.shopping_cart_outlined,
               size: 20,
             ),
             text: "Cart",
-          ),
+          ),*/
           Tab(
             icon: Icon(
               Icons.person,
@@ -214,7 +214,7 @@ class _homepageState extends State<homepage>
               dashboard(),
               appointmentpage(),
               chatapp(),
-              cartpage(),
+              //cartpage(),
               profilepage(),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saloonbooking_aap/chatscreen/chatpage.dart';
 import 'package:saloonbooking_aap/screens/editprofilePage.dart';
 import 'package:saloonbooking_aap/screens/splashscreen.dart';
 import 'package:saloonbooking_aap/tabbar/dashboard.dart';
